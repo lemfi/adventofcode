@@ -22,7 +22,7 @@ fun List<List<Char>>.applyRules(acceptedContigous: Int, seats: (input: List<List
         position, line  ->
         line.applyRule(this, acceptedContigous, position, seats)
     }.fold(listOf<List<Char>>() to false) {
-        res, current -> listOf(*res.first.toTypedArray(), current.first) to (res.second || current.second)
+        res, current -> res.first + listOf(current.first) to (res.second || current.second)
     }.let {
         if (it.second) it.first.applyRules(acceptedContigous, seats)
         else it
@@ -34,7 +34,7 @@ fun List<Char>.applyRule(input:List<List<Char>>, acceptedContigous: Int, x: Int,
         y, column  ->
         column.rule(input, acceptedContigous, x, y, seats)
     }.fold(listOf<Char>() to false) {
-        res, current -> listOf(*res.first.toTypedArray(), current.first) to (res.second || current.second)
+        res, current -> res.first + listOf(current.first) to (res.second || current.second)
     }
 }
 

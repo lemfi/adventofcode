@@ -50,7 +50,7 @@ infix fun List<Bag>.`which contain`(color: String): Set<String> {
             .map { it.color }
             .let {
                 if (it.isEmpty()) setOf()
-                else it.fold(setOf(*it.toTypedArray())) { res, current -> res.union(`which contain`(current)) }
+                else it.fold(it.toSet()) { res, current -> res.union(`which contain`(current)) }
             }
 }
 

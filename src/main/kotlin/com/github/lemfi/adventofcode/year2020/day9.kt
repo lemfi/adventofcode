@@ -27,9 +27,9 @@ tailrec fun List<Long>.headSumsTo(sum: Long, res: List<Long> = emptyList()): Lis
     return if (this.isEmpty()) res
     else {
         val trySum = res.sum() + this.first()
-        if (trySum == sum) listOf(*res.toTypedArray(), first())
+        if (trySum == sum) res + listOf(first())
         else if (trySum < sum) {
-            drop(1).headSumsTo(sum, listOf(*res.toTypedArray(), first()))
+            drop(1).headSumsTo(sum, res + listOf(first()))
         } else emptyList()
     }
 }

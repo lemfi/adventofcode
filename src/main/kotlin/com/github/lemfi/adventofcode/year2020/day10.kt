@@ -22,24 +22,24 @@ fun day10_2(data: String): Long {
 }
 
 fun List<Long>.split(currenLst: List<Long> = emptyList(), lst: List<List<Long>> = emptyList()): List<List<Long>> {
-    if (this.isEmpty()) return listOf(*lst.toTypedArray(), currenLst)
+    if (this.isEmpty()) return lst + listOf(currenLst)
     val current = first()
     if (filter { it <= current + 3 && it != current }.let { it.size == 1 && (it.first() - current) == 3L }) {
-        return drop(1).split(listOf(), listOf(*lst.toTypedArray(), listOf(*currenLst.toTypedArray(), current)))
+        return drop(1).split(listOf(), lst + listOf(currenLst + listOf(current)))
     } else {
-        return drop(1).split(listOf(*currenLst.toTypedArray(), current), lst)
+        return drop(1).split(currenLst + listOf(current), lst)
     }
 }
 
 fun List<Long>.toPosibilities(min: Long, max: Long, current: List<Long> = emptyList(), possibilities: List<List<Long>> = emptyList()): List<List<Long>> {
     if (filter { it <= min + 3 }.isEmpty()) {
         if (current.contains(max -3)) {
-            return listOf(*possibilities.toTypedArray(), current)
+            return possibilities + listOf(current)
         } else return possibilities
     }
     val filter = filter { it <= min + 3 }
 
-    return listOf(*possibilities.toTypedArray(), *filter.map { value -> filterNot { it <= value }.toPosibilities(value, max, listOf(value), listOf()) }.flatten().toTypedArray())
+    return possibilities + filter.map { value -> filterNot { it <= value }.toPosibilities(value, max, listOf(value), listOf()) }.flatten()
 }
 
 fun Tree.toJoltDiffs(res: Pair<Long, Long> = 1L to 1L): Pair<Long, Long> {
