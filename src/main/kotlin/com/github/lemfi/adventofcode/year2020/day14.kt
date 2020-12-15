@@ -4,32 +4,43 @@ import kotlin.math.pow
 
 fun day14_1(data: String): Long {
 
-    return data.split("mask = ")
+    return data.play(Computer::rules1)
+}
+
+fun day14_2(data: String): Long {
+
+    return data.play(Computer::rules2)
+}
+
+fun String.play(rule: Computer.(MutableMap<Long, Long>)->MutableMap<Long, Long>): Long {
+    return split("mask = ")
             .filterNot { it.isBlank() }
             .map {
-                it.lines().filterNot { it.isBlank() }
-                        .let {
-                            Computer(
-                                    mask = it.first().toList(),
-                                    operations = it.drop(1)
-                                            .map {
-                                                it.split(" = ").let { it.first().substringAfter("mem[").substringBefore("]").toInt() to it.last().toInt() }
-                                            }
-                            )
-
-                        }
+                it.toComputer()
             }.let {
-                it.fold(mutableMapOf<Int, Long>()) {
-                    res, computer -> computer.playOps(res)
+                it.fold(mutableMapOf<Long, Long>()) {
+                    res, computer -> computer.rule(res)
                 }
             }.values.sum()
 }
+
+private fun String.toComputer() =
+    lines().filterNot { it.isBlank() }
+            .let {
+                Computer(
+                        mask = it.first().toList(),
+                        operations = it.drop(1)
+                                .map {
+                                    it.split(" = ").let { it.first().substringAfter("mem[").substringBefore("]").toInt() to it.last().toInt() }
+                                }
+                )
+            }
 
 data class Computer(
         val mask: List<Char>,
         val operations: List<Pair<Int, Int>>
 ) {
-    fun playOps(current: MutableMap<Int, Long>): MutableMap<Int, Long> {
+    fun rules1(current: MutableMap<Long, Long>): MutableMap<Long, Long> {
         operations.forEach { op ->
             Integer.toBinaryString(op.second).padStart(36, '0').toList()
                     .zip(mask)
@@ -40,42 +51,15 @@ data class Computer(
                             else -> it.first.toString().toLong()
                         }
                     }
-                    .binaryToDecimal()
+                    .joinToString("").toLong(2)
                     .let {
-                        current.put(op.first, it)
+                        current.put(op.first.toLong(), it)
                     }
         }
         return current
     }
-}
-fun day14_2(data: String): Long {
 
-    return data.split("mask = ")
-            .filterNot { it.isBlank() }
-            .map {
-                it.lines().filterNot { it.isBlank() }.let {
-                    Computer2(
-                            mask = it.first().toList(),
-                            operations = it.drop(1)
-                                    .map {
-                                        it.split(" = ").let { it.first().substringAfter("mem[").substringBefore("]").toInt() to it.last().toInt() }
-                                    })
-
-                }
-            }.let {
-                it.fold(mutableMapOf<Long, Long>()) {
-                    res, mem -> mem.playOps(res)
-                }
-            }.values.sum()
-}
-
-
-
-data class Computer2(
-        val mask: List<Char>,
-        val operations: List<Pair<Int, Int>>
-) {
-    fun playOps(current: MutableMap<Long, Long>): MutableMap<Long, Long> {
+    fun rules2(current: MutableMap<Long, Long>): MutableMap<Long, Long> {
         operations.forEach { op ->
             Integer.toBinaryString(op.first).padStart(36, '0').toList()
                     .zip(mask)
@@ -88,7 +72,7 @@ data class Computer2(
                     }
                     .toAddresses()
                     .forEach {
-                        it.binaryToDecimal()
+                        it.joinToString("").toLong(2)
                                 .let {
                                     current.put(it, op.second.toLong())
                                 }
@@ -98,9 +82,6 @@ data class Computer2(
         return current
     }
 }
-
-private fun List<Long>.binaryToDecimal() = reversed()
-        .foldIndexed(0L) { index, acc, i -> 2.0.pow(index).toLong() * i + acc }
 
 fun List<Set<Long>>.toAddresses(current: List<Long> = emptyList()): List<List<Long>> {
 
