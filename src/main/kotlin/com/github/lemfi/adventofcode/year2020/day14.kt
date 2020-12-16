@@ -1,7 +1,5 @@
 package com.github.lemfi.adventofcode.year2020
 
-import kotlin.math.pow
-
 fun day14_1(data: String): Long {
 
     return data.play(Computer::rules1)
