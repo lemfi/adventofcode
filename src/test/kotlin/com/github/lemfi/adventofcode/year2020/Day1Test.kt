@@ -7,7 +7,7 @@ class Day1Test {
 
     @Test
     fun sample1() {
-        Assertions.assertEquals(514579, day1_1("""1721
+        Assertions.assertEquals(514579, Day1.star1("""1721
             |979
             |366
             |299
@@ -17,7 +17,7 @@ class Day1Test {
 
     @Test
     fun sample2() {
-        Assertions.assertEquals(241861950, day1_2("""1721
+        Assertions.assertEquals(241861950, Day1.star2("""1721
             |979
             |366
             |299
@@ -28,11 +28,11 @@ class Day1Test {
 
     @Test
     fun real1() {
-        Assertions.assertEquals(646779, day1_1(data1))
+        Assertions.assertEquals(646779, Day1.star1(Day1.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(246191688, day1_2(data1))
+        Assertions.assertEquals(246191688, Day1.star2(Day1.data))
     }
 }
