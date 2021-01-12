@@ -7,7 +7,7 @@ class Day4Test {
 
     @Test
     fun sample1() {
-        Assertions.assertEquals(2, day4_1("""ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+        Assertions.assertEquals(2, Day4.star1("""ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
             |byr:1937 iyr:2017 cid:147 hgt:183cm
             |
             |iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
@@ -25,7 +25,7 @@ class Day4Test {
 
     @Test
     fun sample2() {
-        Assertions.assertEquals(0, day4_2("""eyr:1972 cid:100
+        Assertions.assertEquals(0, Day4.star2("""eyr:1972 cid:100
 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
 
 iyr:2019
@@ -43,7 +43,7 @@ pid:3556412378 byr:2007""".trimMargin())
 
     @Test
     fun sample3() {
-        Assertions.assertEquals(4, day4_2("""pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
+        Assertions.assertEquals(4, Day4.star2("""pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
 hcl:#623a2f
 
 eyr:2029 ecl:blu cid:129 byr:1989
@@ -60,11 +60,11 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719""".trimMa
 
     @Test
     fun real1() {
-        Assertions.assertEquals(260, day4_1(data4))
+        Assertions.assertEquals(260, Day4.star1(Day4.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(153, day4_2(data4))
+        Assertions.assertEquals(153, Day4.star2(Day4.data))
     }
 }
