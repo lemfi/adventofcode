@@ -8,7 +8,7 @@ class Day6Test {
     @Test
     fun sample1() {
 
-        Assertions.assertEquals(11, day6_1("""abc
+        Assertions.assertEquals(11, Day6.star1("""abc
             |
             |a
             |b
@@ -28,7 +28,7 @@ class Day6Test {
     @Test
     fun sample2() {
 
-        Assertions.assertEquals(6, day6_2("""abc
+        Assertions.assertEquals(6, Day6.star2("""abc
             |
             |a
             |b
@@ -48,13 +48,13 @@ class Day6Test {
     @Test
     fun real1() {
 
-        Assertions.assertEquals(7120, day6_1(day6data))
+        Assertions.assertEquals(7120, Day6.star1(Day6.data))
     }
 
     @Test
     fun real2() {
 
-        Assertions.assertEquals(3570, day6_2(day6data))
+        Assertions.assertEquals(3570, Day6.star2(Day6.data))
     }
 
 }
