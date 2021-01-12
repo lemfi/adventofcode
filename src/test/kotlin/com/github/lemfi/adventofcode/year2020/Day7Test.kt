@@ -8,7 +8,7 @@ class Day7Test {
     @Test
     fun sample1() {
 
-        Assertions.assertEquals(4, day7_1("""light red bags contain 1 bright white bag, 2 muted yellow bags.
+        Assertions.assertEquals(4, Day7.star1("""light red bags contain 1 bright white bag, 2 muted yellow bags.
             |dark orange bags contain 3 bright white bags, 4 muted yellow bags.
             |bright white bags contain 1 shiny gold bag.
             |muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.
@@ -22,7 +22,7 @@ class Day7Test {
     @Test
     fun sample2() {
 
-        Assertions.assertEquals(32, day7_2("""light red bags contain 1 bright white bag, 2 muted yellow bags.
+        Assertions.assertEquals(32, Day7.star2("""light red bags contain 1 bright white bag, 2 muted yellow bags.
             |dark orange bags contain 3 bright white bags, 4 muted yellow bags.
             |bright white bags contain 1 shiny gold bag.
             |muted yellow bags contain 2 shiny gold bags, 9 faded blue bags.
@@ -36,7 +36,7 @@ class Day7Test {
     @Test
     fun sample3() {
 
-        Assertions.assertEquals(126, day7_2("""shiny gold bags contain 2 dark red bags.
+        Assertions.assertEquals(126, Day7.star2("""shiny gold bags contain 2 dark red bags.
             |dark red bags contain 2 dark orange bags.
             |dark orange bags contain 2 dark yellow bags.
             |dark yellow bags contain 2 dark green bags.
@@ -47,12 +47,12 @@ class Day7Test {
 
     @Test
     fun real1() {
-        Assertions.assertEquals(124, day7_1(day7data))
+        Assertions.assertEquals(124, Day7.star1(Day7.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(34862, day7_2(day7data))
+        Assertions.assertEquals(34862, Day7.star2(Day7.data))
     }
 
 }
