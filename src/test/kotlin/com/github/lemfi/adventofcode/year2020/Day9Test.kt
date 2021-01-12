@@ -8,7 +8,7 @@ class Day9Test {
     @Test
     fun sample1() {
 
-        Assertions.assertEquals(127, day9_1(5, """35
+        Assertions.assertEquals(127, Day9.star1(5, """35
 20
 15
 25
@@ -33,7 +33,7 @@ class Day9Test {
     @Test
     fun sample2() {
 
-        Assertions.assertEquals(62, day9_2(5, """35
+        Assertions.assertEquals(62, Day9.star2(5, """35
 20
 15
 25
@@ -57,12 +57,12 @@ class Day9Test {
 
     @Test
     fun real1() {
-        Assertions.assertEquals(466456641, day9_1(25, day9data))
+        Assertions.assertEquals(466456641, Day9.star1(25, Day9.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(55732936, day9_2(25, day9data))
+        Assertions.assertEquals(55732936, Day9.star2(25, Day9.data))
     }
 
 }
