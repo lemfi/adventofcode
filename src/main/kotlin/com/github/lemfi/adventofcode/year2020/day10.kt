@@ -1,173 +1,69 @@
 package com.github.lemfi.adventofcode.year2020
 
+import java.nio.charset.Charset
 import kotlin.math.max
-
-fun day10_1(data: String): Long {
-
-    return data.lines()
-            .map { it.toLong() }
-            .toValidTree()
-            ?.toJoltDiffs()
-            ?.let { it.first * it.second } ?: -1
-}
-
-fun day10_2(data: String): Long {
-    return data.lines()
-            .map { it.toLong() }
-            .sorted()
-            .split()
-            .map { it.toPosibilities(max(0, it.first() - 3), it.last() + 3).flatten() }
-            .map { it.count().toLong() }
-            .reduce { acc, i -> acc * i }
-}
-
-fun List<Long>.split(currenLst: List<Long> = emptyList(), lst: List<List<Long>> = emptyList()): List<List<Long>> {
-    if (this.isEmpty()) return lst + listOf(currenLst)
-    val current = first()
-    if (filter { it <= current + 3 && it != current }.let { it.size == 1 && (it.first() - current) == 3L }) {
-        return drop(1).split(listOf(), lst + listOf(currenLst + listOf(current)))
-    } else {
-        return drop(1).split(currenLst + listOf(current), lst)
-    }
-}
-
-fun List<Long>.toPosibilities(min: Long, max: Long, current: List<Long> = emptyList(), possibilities: List<List<Long>> = emptyList()): List<List<Long>> {
-    if (filter { it <= min + 3 }.isEmpty()) {
-        if (current.contains(max -3)) {
-            return possibilities + listOf(current)
-        } else return possibilities
-    }
-    val filter = filter { it <= min + 3 }
-
-    return possibilities + filter.map { value -> filterNot { it <= value }.toPosibilities(value, max, listOf(value), listOf()) }.flatten()
-}
-
-fun Tree.toJoltDiffs(res: Pair<Long, Long> = 1L to 1L): Pair<Long, Long> {
-    if (tree == null) return res
-    if (value + 1 == tree.value) return tree.toJoltDiffs(res.first + 1 to res.second)
-    if (value + 3 == tree.value) return tree.toJoltDiffs(res.first to res.second + 1)
-    else return tree.toJoltDiffs(res)
-}
-
-fun List<Long>.toValidTree(init: Long = 0): Tree? {
-    if (this.isEmpty()) return null
-    return sorted().first { it <= init + 3 }
-            .let {
-                value ->
-                Tree(value, filterNot { it == value }.toValidTree(value))
-            }
-}
-
-data class Tree(
-        val value: Long,
-        val tree: Tree?
-)
 
 fun main() {
 
-    day10_1(day10data)
-            .apply { println(this) }
+    Day10.star1(Day10.data)
+        .apply { println(this) }
 
-    day10_2(day10data)
-            .apply { println("res: $this") }
+    Day10.star2(Day10.data)
+        .apply { println("res: $this") }
 
 }
 
-val day10data = """35
-111
-135
-32
-150
-5
-106
-154
-41
-7
-27
-117
-109
-63
-64
-21
-138
-98
-40
-71
-144
-13
-66
-48
-12
-55
-119
-103
-54
-78
-65
-112
-39
-128
-53
-140
-77
-34
-28
-81
-151
-125
-85
-124
-2
-99
-131
-59
-60
-6
-94
-33
-42
-93
-14
-141
-92
-38
-104
-9
-29
-100
-52
-19
-147
-49
-74
-70
-84
-113
-120
-91
-97
-17
-45
-139
-90
-116
-149
-129
-87
-69
-20
-24
-148
-18
-58
-123
-76
-118
-130
-132
-75
-110
-105
-1
-8
-86"""
+object Day10 {
+
+    fun star1(data: String): Long {
+
+        return data.lines()
+            .map { it.toLong() }
+            .sorted()
+            .toJoltDiffs()
+            .let { it.first * it.second }
+    }
+
+    fun star2(data: String): Long {
+        return data.lines()
+            .map { it.toLong() }
+            .sorted()
+            .split()
+            .let { lists ->
+                lists.mapIndexed { index, it ->
+                    if (index == 0) it.computePossibilities(0) + it.drop(1).computePossibilities(0) + it.drop(2).computePossibilities(0)
+                    else it.computePossibilities(lists[index-1].last())
+                }
+            }
+            .reduce { acc, i -> acc * i }
+    }
+
+    fun List<Long>.split(): List<List<Long>> =
+        foldIndexed(mutableListOf(mutableListOf<Long>())) {
+                index, res, current ->
+
+            res.last().add(current)
+            if (current + 3 == getOrElse(index + 1) { -1L }) res.also { it.add(mutableListOf()) }
+            res
+        }
+
+    fun List<Long>.computePossibilities(prec: Long = first() - 3): Long {
+        return if (size == 1) 1L
+        else if (isNotEmpty() && first() <= prec + 3) {
+            drop(1).computePossibilities(first()) + drop(2).computePossibilities(first()) + drop(3).computePossibilities(first())
+        }
+        else 0L
+    }
+
+    fun List<Long>.toJoltDiffs(): Pair<Long, Long> =
+        foldIndexed(1L to 1L) {
+                index, res, current ->
+
+            if (current + 1 == getOrElse(index + 1) { -1L }) res.first + 1 to res.second
+            else if (current + 3 == getOrElse(index + 1) { -1L }) res.first to res.second + 1
+            else res
+        }
+
+    val data: String by lazy { javaClass.getResourceAsStream("/2020/day10.txt").readAllBytes().toString(Charset.defaultCharset()) }
+
+}
