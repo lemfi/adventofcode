@@ -9,54 +9,54 @@ class Day13Test {
     @Test
     fun sample1() {
 
-        Assertions.assertEquals(295, day13_1("""939
+        Assertions.assertEquals(295, Day13.star1("""939
 7,13,x,x,59,x,31,19"""))
     }
 
     @Test
     fun sample2() {
 
-        Assertions.assertEquals(BigInteger.valueOf(3417), day13_2("""17,x,13,19"""))
+        Assertions.assertEquals(3417L, Day13.star2("""17,x,13,19"""))
     }
 
     @Test
     fun sample3() {
 
-        Assertions.assertEquals(BigInteger.valueOf(754018), day13_2("""67,7,59,61"""))
+        Assertions.assertEquals(754018L, Day13.star2("""67,7,59,61"""))
     }
 
     @Test
     fun sample4() {
 
-        Assertions.assertEquals(BigInteger.valueOf(779210), day13_2("""67,x,7,59,61"""))
+        Assertions.assertEquals(779210L, Day13.star2("""67,x,7,59,61"""))
     }
 
     @Test
     fun sample5() {
 
-        Assertions.assertEquals(BigInteger.valueOf(1261476), day13_2("""67,7,x,59,61"""))
+        Assertions.assertEquals(1261476L, Day13.star2("""67,7,x,59,61"""))
     }
 
     @Test
     fun sample6() {
 
-        Assertions.assertEquals(BigInteger.valueOf(1202161486), day13_2("""1789,37,47,1889"""))
+        Assertions.assertEquals(1202161486L, Day13.star2("""1789,37,47,1889"""))
     }
 
     @Test
     fun sample7() {
 
-        Assertions.assertEquals(BigInteger.valueOf(1068781), day13_2("""7,13,x,x,59,x,31,19"""))
+        Assertions.assertEquals(1068781L, Day13.star2("""7,13,x,x,59,x,31,19"""))
     }
 
     @Test
     fun real1() {
-        Assertions.assertEquals(102, day13_1(day13data))
+        Assertions.assertEquals(102, Day13.star1(Day13.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(BigInteger.valueOf(327300950120029), day13_2(day13data))
+        Assertions.assertEquals(327300950120029L, Day13.star2(Day13.data))
     }
 
 }
