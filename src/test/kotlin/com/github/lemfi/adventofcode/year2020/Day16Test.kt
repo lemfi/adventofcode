@@ -9,7 +9,7 @@ class Day16Test {
     @Test
     fun sample1() {
 
-        Assertions.assertEquals(71, day16_1("""class: 1-3 or 5-7
+        Assertions.assertEquals(71, Day16.star1("""class: 1-3 or 5-7
 row: 6-11 or 33-44
 seat: 13-40 or 45-50
 
@@ -23,20 +23,14 @@ nearby tickets:
 38,6,12"""))
     }
 
-//    @Test
-//    fun sample2() {
-//
-//        Assertions.assertEquals(-1, day16_2(""""""))
-//    }
-//
     @Test
     fun real1() {
-        Assertions.assertEquals(20058, day16_1(day16data))
+        Assertions.assertEquals(20058, Day16.star1(Day16.data))
     }
 
     @Test
     fun real2() {
-        Assertions.assertEquals(366871907221, day16_2(day16data))
+        Assertions.assertEquals(366871907221, Day16.star2(Day16.data))
     }
 
 }
