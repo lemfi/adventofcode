@@ -8,11 +8,37 @@ class Day1Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day1.star1(null))
+        Assertions.assertEquals(
+            7, Day1.star1(
+                """199
+200
+208
+210
+200
+207
+240
+269
+260
+263"""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day1.star2(null))
+        Assertions.assertEquals(
+            5, Day1.star2(
+                """199
+200
+208
+210
+200
+207
+240
+269
+260
+263"""
+            )
+        )
     }
 }
