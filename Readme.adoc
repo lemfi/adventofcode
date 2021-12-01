@@ -2,6 +2,9 @@
 
 My participation to https://adventofcode.com[Advent of Code]
 
+== https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2015[2015]
 == https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2020[2020]
 
 Day 20 is available as a notebook https://github.com/lemfi/adventofcode/blob/master/src/main/resources/2020/day20.ipynb[here]
+
+== https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2021[2021]
