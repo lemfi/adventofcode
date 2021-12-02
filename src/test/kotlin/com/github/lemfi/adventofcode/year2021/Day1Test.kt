@@ -41,4 +41,12 @@ class Day1Test {
             )
         )
     }
+
+    @Test
+    fun puzzle1() =
+        Assertions.assertEquals(1583, Day1.star1(null))
+
+    @Test
+    fun puzzle2() =
+        Assertions.assertEquals(1627, Day1.star2(null))
 }
