@@ -18,6 +18,7 @@ object Day8 {
 
     data class Number(val wires: Set<Char>) {
         constructor(wiresAsString: String) : this(wiresAsString.toSet())
+
         val length = wires.size
 
         var representation: Int? = null
@@ -30,7 +31,7 @@ object Day8 {
             .let { (numbers, toDecode) ->
                 Pair(
                     first = numbers.split(" ").map { Number(it) }.toMutableList(),
-                    second= toDecode.split(" ").map { Number(it) }.toMutableList()
+                    second = toDecode.split(" ").map { Number(it) }.toMutableList()
                 )
             }
     }

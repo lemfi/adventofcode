@@ -41,4 +41,14 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
             )
         )
     }
+
+    @Test
+    fun puzzle1() {
+        Assertions.assertEquals(272, Day8.star1(null))
+    }
+
+    @Test
+    fun puzzle2() {
+        Assertions.assertEquals(1007675, Day8.star2(null))
+    }
 }
