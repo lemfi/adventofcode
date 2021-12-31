@@ -8,11 +8,21 @@ class Day17Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day17.star1(null))
+        Assertions.assertEquals(45, Day17.star1("target area: x=20..30, y=-10..-5"))
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day17.star2(null))
+        Assertions.assertEquals(112, Day17.star2("target area: x=20..30, y=-10..-5"))
+    }
+
+    @Test
+    fun puzzle1() {
+        Assertions.assertEquals(11175, Day17.star1(null))
+    }
+
+    @Test
+    fun puzzle2() {
+        Assertions.assertEquals(3540, Day17.star2(null))
     }
 }
