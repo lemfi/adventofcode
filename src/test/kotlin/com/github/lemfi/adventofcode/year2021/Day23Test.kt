@@ -8,11 +8,37 @@ class Day23Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day23.star1(null))
+        Assertions.assertEquals(
+            12521, Day23.star1(
+                """#############
+#...........#
+###B#C#B#D###
+  #A#D#C#A#
+  #########"""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day23.star2(null))
+        Assertions.assertEquals(
+            44169, Day23.star2(
+                """#############
+#...........#
+###B#C#B#D###
+  #A#D#C#A#
+  #########"""
+            )
+        )
+    }
+
+    @Test
+    fun puzzle1() {
+        Assertions.assertEquals(18282, Day23.star1(null))
+    }
+
+    @Test
+    fun puzzle2() {
+        Assertions.assertEquals(50132, Day23.star2(null))
     }
 }
