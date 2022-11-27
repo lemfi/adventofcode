@@ -104,6 +104,7 @@ object Day18 {
                             NumberElement(left.value / 2),
                             NumberElement(left.value / 2 + left.value % 2)
                         )
+
                     is PairElement -> left.split()
                 }
             } else {
@@ -112,6 +113,7 @@ object Day18 {
                         NumberElement(right.value / 2),
                         NumberElement(right.value / 2 + right.value % 2)
                     )
+
                     is PairElement -> right.split()
                 }
             }
@@ -187,5 +189,6 @@ object Day18 {
     }
 }
 
-
-processStars(Day18::star1, Day18::star2)
+fun main() {
+    processStars(Day18::star1, Day18::star2)
+}

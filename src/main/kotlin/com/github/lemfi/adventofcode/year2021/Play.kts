@@ -8,7 +8,7 @@ import com.github.lemfi.adventofcode.year2021.Day14.Day14
 import com.github.lemfi.adventofcode.year2021.Day15.Day15
 import com.github.lemfi.adventofcode.year2021.Day16.Day16
 import com.github.lemfi.adventofcode.year2021.Day17.Day17
-import com.github.lemfi.adventofcode.year2021.Day18.Day18
+import com.github.lemfi.adventofcode.year2021.Day18
 import com.github.lemfi.adventofcode.year2021.Day19.Day19
 import com.github.lemfi.adventofcode.year2021.Day2.Day2
 import com.github.lemfi.adventofcode.year2021.Day20.Day20
