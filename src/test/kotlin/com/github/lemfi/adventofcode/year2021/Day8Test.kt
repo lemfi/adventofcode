@@ -1,6 +1,5 @@
 package com.github.lemfi.adventofcode.year2021
 
-import com.github.lemfi.adventofcode.year2021.Day8.Day8
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
