@@ -1,11 +1,10 @@
 package com.github.lemfi.adventofcode.year2022
 
-import com.github.lemfi.adventofcode.data
 import com.github.lemfi.adventofcode.processStars
 
 object Day25 {
 
-    private fun String?.toData() = this ?: data("25")
+    private fun String?.toData() = this ?: data(25)
 
     fun star1(input: String?) = 0
 
