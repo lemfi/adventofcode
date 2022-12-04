@@ -7,11 +7,29 @@ class Day4Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day4.star1(null))
+        Assertions.assertEquals(
+            2, Day4.star1(
+                """2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8"""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day4.star2(null))
+        Assertions.assertEquals(
+            4, Day4.star2(
+                """2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8"""
+            )
+        )
     }
 }
