@@ -7,11 +7,11 @@ class Day6Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day6.star1(null))
+        Assertions.assertEquals(7, Day6.star1("""mjqjpqmgbljsphdztnvjfqwrcgsmlb"""))
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day6.star2(null))
+        Assertions.assertEquals(19, Day6.star2("""mjqjpqmgbljsphdztnvjfqwrcgsmlb"""))
     }
 }
