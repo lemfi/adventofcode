@@ -7,11 +7,11 @@ class Day17Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day17.star1(null))
+        Assertions.assertEquals(3068, Day17.star1(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>"))
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day17.star2(null))
+        Assertions.assertEquals(1514285714288L, Day17.star2(">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>"))
     }
 }
