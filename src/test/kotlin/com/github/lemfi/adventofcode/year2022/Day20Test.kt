@@ -7,11 +7,31 @@ class Day20Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day20.star1(null))
+        Assertions.assertEquals(
+            3, Day20.star1(
+                """1
+2
+-3
+3
+-2
+0
+4"""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day20.star2(null))
+        Assertions.assertEquals(
+            1623178306, Day20.star2(
+                """1
+2
+-3
+3
+-2
+0
+4"""
+            )
+        )
     }
 }
