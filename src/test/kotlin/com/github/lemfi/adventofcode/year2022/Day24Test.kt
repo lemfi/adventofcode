@@ -7,11 +7,29 @@ class Day24Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day24.star1(null))
+        Assertions.assertEquals(
+            18, Day24.star1(
+                """#.######
+#>>.<^<#
+#.<..<<#
+#>v.><>#
+#<^v^^>#
+######.#"""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day24.star2(null))
+        Assertions.assertEquals(
+            54, Day24.star2(
+                """#.######
+#>>.<^<#
+#.<..<<#
+#>v.><>#
+#<^v^^>#
+######.#"""
+            )
+        )
     }
 }
