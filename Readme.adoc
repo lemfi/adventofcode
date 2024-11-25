@@ -13,3 +13,5 @@ Day 20 is available as a notebook https://github.com/lemfi/adventofcode/blob/mas
 == https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2022[2022]
 
 == https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2023[2023]
+
+== https://github.com/lemfi/adventofcode/tree/master/src/main/kotlin/com/github/lemfi/adventofcode/year2024[2024]
