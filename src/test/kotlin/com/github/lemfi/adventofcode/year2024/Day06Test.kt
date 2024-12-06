@@ -7,11 +7,37 @@ class Day06Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day06.star1(null))
+        Assertions.assertEquals(
+            41, Day06.star1(
+                """....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#..."""
+            )
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day06.star2(null))
+        Assertions.assertEquals(
+            6, Day06.star2(
+                """....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#..."""
+            )
+        )
     }
 }

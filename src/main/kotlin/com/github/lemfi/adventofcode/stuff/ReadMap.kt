@@ -4,13 +4,21 @@ package com.github.lemfi.adventofcode.stuff
 
 object ReadMap {
 
-    fun <T> String.toMap(transformChar: (Char) -> T = { it as T }): Map<Coordinate, T> =
+    fun <T> String.toMap(transformChar: (Char, Int, Int) -> T = { c, _, _ -> c as T }): Map<Coordinate, T> =
         lines()
             .mapIndexed { y, line ->
-                line.mapIndexed { x, letter -> Coordinate(x, y) to transformChar(letter) }
+                line.mapIndexed { x, letter -> Coordinate(x, y) to transformChar(letter, x, y) }
             }
             .flatten()
             .toMap()
+
+    fun <T> Map<Coordinate, T>.readMap(from: Coordinate, distance: Int, direction: Direction4): List<T> =
+        when (direction) {
+            Direction4.UP -> readMap(from, distance, Direction8.UP)
+            Direction4.DOWN -> readMap(from, distance, Direction8.DOWN)
+            Direction4.LEFT -> readMap(from, distance, Direction8.LEFT)
+            Direction4.RIGHT -> readMap(from, distance, Direction8.RIGHT)
+        }
 
     fun <T> Map<Coordinate, T>.readMap(from: Coordinate, distance: Int, direction: Direction8): List<T> {
 
