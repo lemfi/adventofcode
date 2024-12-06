@@ -12,6 +12,14 @@ object ReadMap {
             .flatten()
             .toMap()
 
+    fun <T> Map<Coordinate, T>.readMap(from: Coordinate, distance: Int, direction: Direction4): List<T> =
+        when (direction) {
+            Direction4.UP -> readMap(from, distance, Direction8.UP)
+            Direction4.DOWN -> readMap(from, distance, Direction8.DOWN)
+            Direction4.LEFT -> readMap(from, distance, Direction8.LEFT)
+            Direction4.RIGHT -> readMap(from, distance, Direction8.RIGHT)
+        }
+
     fun <T> Map<Coordinate, T>.readMap(from: Coordinate, distance: Int, direction: Direction8): List<T> {
 
         val read: List<Coordinate>.() -> List<T> = {
