@@ -20,4 +20,18 @@ object ReadMap {
 
         return (0 until distance).map { from.to(direction, it) }.read()
     }
+
+    fun <T> Map<Coordinate, T>.findPositions(
+        from: Coordinate,
+        direction: Direction8,
+        condition: (T) -> Boolean
+    ): List<Coordinate> {
+        var next = from.to(direction)
+        val res = mutableListOf<Coordinate>()
+        while (this.containsKey(next)) {
+            if (condition(this[next]!!)) res.add(next)
+            next = next.to(direction)
+        }
+        return res
+    }
 }
