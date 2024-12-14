@@ -7,11 +7,13 @@ class Day14Test {
 
     @Test
     fun star1() {
-        Assertions.assertEquals(0, Day14.star1(null))
+        Assertions.assertEquals(
+            229632480, Day14.star1(null)
+        )
     }
 
     @Test
     fun star2() {
-        Assertions.assertEquals(0, Day14.star2(null))
+        Assertions.assertEquals(7051, Day14.star2(null))
     }
 }
